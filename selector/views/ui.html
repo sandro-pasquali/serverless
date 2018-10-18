@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf8">
+<title></title>
+<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+<style>
+    .slippylist li {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        cursor: default;
+    }
+
+    /* the rest is junk for the demo page */
+    .slippylist li.demo-allow-select {
+        padding: 1em;
+        line-height: 1.3;
+        user-select: text;
+        -moz-user-select: text;
+        -webkit-user-select: text;
+    }
+    .slippylist li.demo-allow-select span {
+        cursor: text;
+    }
+
+    body {
+        background: #eee;
+        font-family: Helvetica, Arial, sans-serif;
+        max-width: 40em;
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    .slippylist {
+        clear:left;
+        margin: 1em;
+        padding: 0 0 1px;
+    }
+
+    .slippylist li {
+        display: block;
+        position: relative;
+        border: 1px solid black;
+        background: white;
+        margin: 0; padding: 0 1em;
+        border-radius: 3px;
+        margin-bottom: -1px;
+        max-width: 100%;
+        line-height: 3;
+        vertical-align: middle;
+    }
+
+    .slippylist input {
+        vertical-align: middle;
+    }
+
+    .slippylist .instant::after {
+        content: " \2261";
+    }
+    .slippylist .instant {
+        float: right;
+    }
+
+
+</style>
+<body>
+<h4>Order from "least experienced" to "most experienced". Swipe off any you aren't interested in.</h4>
+<ol id="demo1" class="slippylist">
+    <li>Node</li>
+    <li>React</li>
+    <li>Vue</li>
+    <li>CSS</li>
+    <li>ES6</li>
+</ol>
+
+<button id="send">Submit</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slipjs/2.1.1/slip.js"></script>
+<script>
+    function setupSlip(list) {
+        list.addEventListener('slip:beforereorder', function(e){
+            if (e.target.classList.contains('demo-no-reorder')) {
+                e.preventDefault();
+            }
+        }, false);
+
+        list.addEventListener('slip:beforeswipe', function(e){
+            if (e.target.nodeName == 'INPUT' || e.target.classList.contains('demo-no-swipe')) {
+                e.preventDefault();
+            }
+        }, false);
+
+        list.addEventListener('slip:beforewait', function(e){
+            if (e.target.classList.contains('instant')) e.preventDefault();
+        }, false);
+
+        list.addEventListener('slip:afterswipe', function(e){
+            e.target.parentNode.removeChild(e.target);
+        }, false);
+
+        list.addEventListener('slip:reorder', function(e){
+            e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+            return false;
+        }, false);
+        return new Slip(list);
+    }
+    setupSlip(document.getElementById('demo1'));
+
+    document.querySelector(`#send`).onclick = ev => {
+        let opts = Array.from(document.querySelectorAll(`li`)).map(el => el.innerText);
+
+        fetch('https://api.github.com/gists', {
+            method: 'post',
+            body: JSON.stringify(opts)
+        }).then(response => {
+            console.log(response)
+        });
+    }
+
+</script>

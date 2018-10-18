@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "rhythmrocks-executor",
+    "name": "rhythmrocks",
+    "region": "us-east-1"
+  }
+}

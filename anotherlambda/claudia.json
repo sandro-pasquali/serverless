@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "anotherlambda-executor",
+    "name": "anotherlambda",
+    "region": "us-east-1"
+  }
+}

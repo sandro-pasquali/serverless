@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "dispatcher-executor",
+    "name": "dispatcher",
+    "region": "us-east-1"
+  }
+}

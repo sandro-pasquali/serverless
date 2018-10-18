@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "selector-executor",
+    "name": "selector",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "y5l82ppmq2",
+    "module": "lambda"
+  }
+}
