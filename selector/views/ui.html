@@ -109,11 +109,13 @@
     document.querySelector(`#send`).onclick = ev => {
         let opts = Array.from(document.querySelectorAll(`li`)).map(el => el.innerText);
 
-        fetch('https://api.github.com/gists', {
+        fetch('https://y5l82ppmq2.execute-api.us-east-1.amazonaws.com/latest/rbo', {
             method: 'post',
             body: JSON.stringify(opts)
         }).then(response => {
             console.log(response)
+        }).catch(err => {
+            console.log(err)
         });
     }
 

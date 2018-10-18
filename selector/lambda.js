@@ -1,6 +1,10 @@
 const ApiBuilder = require('claudia-api-builder');
 const fs = require('fs');
 const api = new ApiBuilder();
+const aws = require('aws-sdk');
+const lambda = new aws.Lambda({
+    region: 'us-east-1'
+});
 
 module.exports = api;
 

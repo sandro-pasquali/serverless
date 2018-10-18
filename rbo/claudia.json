@@ -1,7 +1,7 @@
 {
   "lambda": {
-    "role": "dispatcher-executor",
-    "name": "dispatcher",
+    "role": "rbo-executor",
+    "name": "rbo",
     "region": "us-east-1"
   }
 }

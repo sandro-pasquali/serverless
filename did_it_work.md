@@ -51,7 +51,9 @@ A couple of things have happened in the background:
 
 # Updating
 
+```
 claudia update --profile claudia
+```
 
 # Triggering
 
@@ -78,13 +80,17 @@ The first argument to a `Lambda` is info about the triggering event. Let's use `
 
 If we have a file `event.json`:
 
+```
 {
   "name": "Sandro"
 }
+```
 
 Then we can do this:
 
+```
 claudia test-lambda --event event.json --profile claudia
+```
 
 And we get:
 

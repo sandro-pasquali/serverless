@@ -168,10 +168,21 @@ const rankedLists = {
     "ES6": ["ES6", "Node","React","Vue","CSS"],
 };
 
+const rbo = new RBO(1);
+
 function getLink(list) {
-    return links.keys().map(key => rbo.calculate(rankedLists[key], list)).sort()[0];
+    return Object.keys(links).map(key => {
+        const score = rbo.calculate(rankedLists[key], list);
+        return {
+            score,
+            key,
+            link: links[key]
+        }
+    }).sort((a,b) => {
+        return a.score < b.score;
+    });
 }
 
 exports.handler = (event, context) => {
-    context.success(getLink(event))
+    context.succeed(getLink(JSON.parse(event)))
 };
