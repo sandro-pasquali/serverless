@@ -1,4 +1,6 @@
-# Lambdas calling Lambdas
+![InRhythm](./images/inrhythm_logo_big.png)
+
+# More is better: Lambdas calling Lambdas
 
 It's clear that you will often want one lambda to call another. How do you do that?
 
@@ -42,6 +44,10 @@ Remember how lambdas are triggered by events? We'll unpack this shortly, but for
 
 Since we didn't send an event the payload is empty, which is expected. Let's fix that.
 
+```
+claudia test-lambda --profile claudia --event ../rhythmrocks/event.json
+```
+
 # Making the call
 
 Return to your `rhythmrocks` folder. Update the `lambda.js` file to the following:
@@ -68,6 +74,7 @@ Note that we're using a `node` module here, the AWS official library. You need t
 
 ```
 npm install aws-sdk
+claudia update --profile claudia
 ```
 
 That's it -- `claudia` will worry about building the lambda package with required dependencies.

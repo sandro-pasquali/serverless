@@ -1,3 +1,5 @@
+![InRhythm](./images/inrhythm_logo_big.png)
+
 # Did it work?
 
 To find out let's try to create a `Lambda` function!
@@ -99,18 +101,6 @@ And we get:
   "StatusCode": 200,
   "ExecutedVersion": "$LATEST",
   "Payload": "\"Hello Sandro!\""
-}
-```
-
-# Did it work? Testing your Lambda
-
-claudia test-lambda --profile claudia
-
-```
-{
-  "StatusCode": 200,
-  "ExecutedVersion": "$LATEST",
-  "Payload": "\"Hello World!\""
 }
 ```
 

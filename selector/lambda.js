@@ -1,4 +1,29 @@
 const ApiBuilder = require('claudia-api-builder');
+const api = new ApiBuilder();
+
+module.exports = api;
+
+api.get('/hello', function () {
+    return 'Under Construction';
+});
+
+/*
+
+const ApiBuilder = require('claudia-api-builder');
+const api = new ApiBuilder();
+
+module.exports = api;
+
+api.get('/hello', function () {
+  return 'Under Construction';
+});
+
+
+
+
+
+
+const ApiBuilder = require('claudia-api-builder');
 const fs = require('fs');
 const api = new ApiBuilder();
 const aws = require('aws-sdk');
@@ -8,7 +33,7 @@ const lambda = new aws.Lambda({
 
 module.exports = api;
 
-api.get('/hello', () => {
+api.get('/', () => {
   return fs.readFileSync(`./views/ui.html`, {encoding: 'utf8'});
 }, { success: { contentType: 'text/html' }});
 
@@ -20,3 +45,5 @@ api.post(`/rbo`, (req) => {
         }, (error, data) => error ? reject(error) : resolve(data.Payload));
     })
 })
+
+*/

@@ -161,18 +161,18 @@ const links = {
 };
 
 const rankedLists = {
-    "Node": ["Node","React","Vue","CSS","ES6"],
-    "React": ["React","Node","Vue","CSS","ES6"],
-    "Vue": ["Vue","Node","React","CSS","ES6"],
-    "CSS": ["CSS","Node","React","Vue","ES6"],
-    "ES6": ["ES6", "Node","React","Vue","CSS"],
+    "Node": ["Node","ES6"],
+    "React": ["React","ES6"],
+    "Vue": ["Vue","React","ES6"],
+    "CSS": ["CSS"],
+    "ES6": ["ES6", "Node"]
 };
 
-const rbo = new RBO(1);
+const rbo = new RBO(0.9);
 
 function getLink(list) {
     return Object.keys(links).map(key => {
-        const score = rbo.calculate(rankedLists[key], list);
+        const score = rbo.calculate(list, rankedLists[key]);
         return {
             score,
             key,

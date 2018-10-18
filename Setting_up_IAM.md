@@ -1,3 +1,5 @@
+![InRhythm](./images/inrhythm_logo_big.png)
+
 # Setting up an IAM account for Claudia
 
 `claudia` needs to access your `AWS` account in order to manage your `Lambda` deployments. You will need to create an `IAM` account and store those credentials on your local machine.
