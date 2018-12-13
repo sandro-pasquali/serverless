@@ -1,4 +1,3 @@
-![InRhythm](./images/inrhythm_logo_big.png)
 
 # Did it work?
 
