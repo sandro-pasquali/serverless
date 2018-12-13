@@ -1,4 +1,3 @@
-![InRhythm](./images/inrhythm_logo_big.png)
 
 # Serverless with Node.js and Claudia.js
 
