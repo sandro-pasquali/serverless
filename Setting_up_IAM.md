@@ -1,4 +1,4 @@
-![InRhythm](./images/inrhythm_logo_big.png)
+
 
 # Setting up an IAM account for Claudia
 
