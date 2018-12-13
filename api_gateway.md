@@ -1,5 +1,5 @@
 
-# Adding APIGateway
+# Adding API Gateway
 
 We're going to create a lambda function that looks and works much like an `Express` application, the famous `Node` server/middleware construction kit. We'll use this to create an RBO (Rank-Biased-Overlap) tool to demonstrate a little mobile app build using lambdas.
 
